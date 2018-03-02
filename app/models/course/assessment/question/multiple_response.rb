@@ -45,6 +45,15 @@ class Course::Assessment::Question::MultipleResponse < ApplicationRecord
     self.options = duplicator.duplicate(other.options)
   end
 
+  # returns the type of question as multiple response or multiple choice
+  def type
+    if options.where(correct: true).count > 1
+      I18n.t('course.assessment.question.multiple_responses.type.multiple_response')
+    else
+      I18n.t('course.assessment.question.multiple_responses.type.multiple_choice')
+    end
+  end
+
   private
 
   def validate_multiple_choice_has_solution

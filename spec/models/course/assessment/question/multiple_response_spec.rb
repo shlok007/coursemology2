@@ -48,5 +48,26 @@ RSpec.describe Course::Assessment::Question::MultipleResponse do
         end
       end
     end
+
+    describe '#type' do
+      context 'when question has more than one correct option' do
+        subject { build(:course_assessment_question_multiple_response) }
+        let!(:another_correct_option) do
+          create(:course_assessment_question_multiple_response_option, :correct, question: subject)
+        end
+
+        it 'returns multiple response' do
+          expect(subject.type).to eq I18n.t('course.assessment.question.multiple_responses.type.multiple_response')
+        end
+      end
+
+      context 'when question has one correct option' do
+        subject { build(:course_assessment_question_multiple_response) }
+
+        it 'returns multiple choice' do
+          expect(subject.type).to eq I18n.t('course.assessment.question.multiple_responses.type.multiple_choice')
+        end
+      end
+    end
   end
 end

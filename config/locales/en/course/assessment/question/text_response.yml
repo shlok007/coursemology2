@@ -58,3 +58,6 @@ en:
             remove: 'Remove'
             compre_keyword: 'Keyword'
             compre_lifted_word: 'Lifted Word'
+          type:
+            text_response: Text Response
+            file_upload: File Upload

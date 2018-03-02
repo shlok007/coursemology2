@@ -18,5 +18,13 @@ RSpec.describe Course::Assessment::Question::Scribing, type: :model do
         expect(subject.attempt(submission)).to be_a(Course::Assessment::Answer)
       end
     end
+
+    describe '#type' do
+      subject { build(:course_assessment_question_scribing) }
+
+      it 'returns correct question type' do
+        expect(subject.type).to eq I18n.t('course.assessment.question.scribing.type')
+      end
+    end
   end
 end

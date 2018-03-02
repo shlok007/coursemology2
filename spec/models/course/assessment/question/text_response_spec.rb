@@ -89,5 +89,22 @@ RSpec.describe Course::Assessment::Question::TextResponse, type: :model do
         end
       end
     end
+
+    describe '#type' do
+      let(:file_upload_question) { build(:course_assessment_question_text_response, :file_upload_question) }
+      let(:text_response_question) { build(:course_assessment_question_text_response) }
+
+      context 'when question type is file upload' do
+        subject { file_upload_question.type }
+
+        it { is_expected.to eq I18n.t('course.assessment.question.text_responses.type.file_upload') }
+      end
+
+      context 'when question type is text response' do
+        subject { text_response_question.type }
+
+        it { is_expected.to eq I18n.t('course.assessment.question.text_responses.type.text_response') }
+      end
+    end
   end
 end

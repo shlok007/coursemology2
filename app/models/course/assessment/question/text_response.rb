@@ -84,6 +84,15 @@ class Course::Assessment::Question::TextResponse < ApplicationRecord
     groups.first.points.build if groups.first.points.empty?
   end
 
+  # returns the type of question as text response or file upload
+  def type
+    if file_upload_question?
+      I18n.t('course.assessment.question.text_responses.type.file_upload')
+    else
+      I18n.t('course.assessment.question.text_responses.type.text_response')
+    end
+  end
+
   private
 
   def validate_grade
