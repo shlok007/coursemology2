@@ -97,13 +97,21 @@ RSpec.describe Course::Assessment::Question::TextResponse, type: :model do
       context 'when question type is file upload' do
         subject { file_upload_question.type }
 
-        it { is_expected.to eq I18n.t('course.assessment.question.text_responses.type.file_upload') }
+        it 'returns correct question type' do
+          is_expected.to eq(
+            I18n.t('activerecord.attributes.models.course/assessment/question/text_response.file_upload')
+          )
+        end
       end
 
       context 'when question type is text response' do
         subject { text_response_question.type }
 
-        it { is_expected.to eq I18n.t('course.assessment.question.text_responses.type.text_response') }
+        it 'returns correct question type' do
+          is_expected.to eq(
+            I18n.t('activerecord.attributes.models.course/assessment/question/text_response.text_response')
+          )
+        end
       end
     end
   end

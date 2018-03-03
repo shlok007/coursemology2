@@ -44,6 +44,9 @@ class Course::Assessment::Question::TextResponse < ApplicationRecord
     end
   end
 
+  # to display question type in assesment#show
+  alias_method :type, :question_type
+
   def auto_grader
     if comprehension_question?
       Course::Assessment::Answer::TextResponseComprehensionAutoGradingService.new
@@ -82,15 +85,6 @@ class Course::Assessment::Question::TextResponse < ApplicationRecord
   def build_at_least_one_group_one_point
     groups.build if groups.empty?
     groups.first.points.build if groups.first.points.empty?
-  end
-
-  # returns the type of question as text response or file upload
-  def type
-    if file_upload_question?
-      I18n.t('course.assessment.question.text_responses.type.file_upload')
-    else
-      I18n.t('course.assessment.question.text_responses.type.text_response')
-    end
   end
 
   private
