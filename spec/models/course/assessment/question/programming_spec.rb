@@ -177,11 +177,11 @@ RSpec.describe Course::Assessment::Question::Programming do
       end
     end
 
-    describe '#type' do
+    describe '#question_type' do
       subject { build(:course_assessment_question_programming) }
 
       it 'returns correct question type' do
-        expect(subject.type).to eq I18n.t('course.assessment.question.programming.type')
+        expect(subject.question_type).to eq I18n.t('course.assessment.question.programming.question_type')
       end
     end
   end

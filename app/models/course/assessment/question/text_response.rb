@@ -44,9 +44,6 @@ class Course::Assessment::Question::TextResponse < ApplicationRecord
     end
   end
 
-  # to display question type in assesment#show
-  alias_method :type, :question_type
-
   def auto_grader
     if comprehension_question?
       Course::Assessment::Answer::TextResponseComprehensionAutoGradingService.new

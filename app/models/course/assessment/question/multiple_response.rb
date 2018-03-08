@@ -46,11 +46,11 @@ class Course::Assessment::Question::MultipleResponse < ApplicationRecord
   end
 
   # returns the type of question as multiple response or multiple choice
-  def type
-    if options.where(correct: true).count > 1
-      I18n.t('course.assessment.question.multiple_responses.type.multiple_response')
+  def question_type
+    if multiple_choice?
+      I18n.t('course.assessment.question.multiple_responses.question_type.multiple_choice')
     else
-      I18n.t('course.assessment.question.multiple_responses.type.multiple_choice')
+      I18n.t('course.assessment.question.multiple_responses.question_type.multiple_response')
     end
   end
 

@@ -21,7 +21,7 @@ class Course::Assessment::Question::Scribing < ApplicationRecord
   end
 
   # return the type of question i.e. Scribing
-  def type
-    I18n.t('course.assessment.question.scribing.type')
+  def question_type
+    I18n.t('course.assessment.question.scribing.question_type')
   end
 end

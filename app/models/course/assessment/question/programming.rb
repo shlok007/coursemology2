@@ -115,8 +115,8 @@ class Course::Assessment::Question::Programming < ApplicationRecord
   end
 
   # returns the type of question i.e. Programming
-  def type
-    I18n.t('course.assessment.question.programming.type')
+  def question_type
+    I18n.t('course.assessment.question.programming.question_type')
   end
 
   private

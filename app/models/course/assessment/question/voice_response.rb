@@ -16,7 +16,7 @@ class Course::Assessment::Question::VoiceResponse < ApplicationRecord
   end
 
   # returns the type of question i.e. Audio response
-  def type
-    I18n.t('course.assessment.question.voice_responses.type')
+  def question_type
+    I18n.t('course.assessment.question.voice_responses.question_type')
   end
 end
